@@ -37,7 +37,7 @@ function App() {
     try {
       await createSingleProduct(product)
       fetchData()
-    } catch (err) {
+    } catch (err: any) {
       Swal.fire('Oops!', err.message, 'error')
     }
   }
@@ -47,7 +47,7 @@ function App() {
       await updateSingleProduct(newProduct)
       setUpdatingProduct(undefined)
       fetchData()
-    } catch (err) {
+    } catch (err: any) {
       Swal.fire('Oops!', err.message, 'error')
     }
   }
@@ -57,7 +57,7 @@ function App() {
       await deleteSingleProduct(id)
       fetchData()
       Swal.fire('Uhul!', 'Product successfully deleted', 'success')
-    } catch (err) {
+    } catch (err: any) {
       Swal.fire('Oops!', err.message, 'error')
     }
   }
