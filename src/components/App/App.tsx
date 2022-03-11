@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css';
 import HomeView from '../../views/HomeView';
 import NotFoundView from '../../views/NotFoundView';
+import LoginView from '../../views/LoginView';
 
 
 //Orientacoes importantes: a palavra exact nao e mais necessaria a partir da v6 do react dom, pode remover ela e teremos o mesmo efeito desejado
@@ -17,6 +18,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/"  element={HomeView} />
+          <Route path="/login"  element={LoginView} />
           <Route element={NotFoundView}/>
         </Routes>
       </BrowserRouter>
