@@ -19,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/"  element={HomeView} />
           <Route path="/login"  element={LoginView} />
+          <Route path="/profile"  element={ProfileView} />
           <Route element={NotFoundView}/>
         </Routes>
       </BrowserRouter>
