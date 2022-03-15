@@ -4,6 +4,7 @@ import './App.css';
 import HomeView from '../../views/HomeView';
 import NotFoundView from '../../views/NotFoundView';
 import LoginView from '../../views/LoginView';
+import ProfileView from '../../views/ProfileView';
 
 
 //Orientacoes importantes: a palavra exact nao e mais necessaria a partir da v6 do react dom, pode remover ela e teremos o mesmo efeito desejado
