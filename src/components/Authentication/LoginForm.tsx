@@ -5,6 +5,7 @@ import Button from '../../shared/Button'
 import Swal from 'sweetalert2'
 import { useDispatch } from 'react-redux'
 import { login } from '../../redux/Authentication/Authentication.actions'
+import { useNavigate } from 'react-router-dom'
 
 const LoginForm = () => {
   const dispatch = useDispatch()
@@ -13,9 +14,11 @@ const LoginForm = () => {
     pass: ''
   })
   
+  const navigate = useNavigate()
   const handleLogin = async () => {
     try {
       await dispatch(login(form))
+      navigate('/profile')
     } catch(err: any) {
       Swal.fire(
         'Error',
