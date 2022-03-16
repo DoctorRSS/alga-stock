@@ -13,15 +13,17 @@ import ProfileView from '../../views/ProfileView';
 
 //Outra alteracao importante é o Switch ser substituipo pelo Routes nesta versao
 //Fonte https://ateliware.com/blog/react-router e https://stackoverflow.com/questions/63124161/attempted-import-error-switch-is-not-exported-from-react-router-dom
+
+//Outro ponto de correcao, utilizar as tags < /> para executar com o element
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/"  element={HomeView} />
-          <Route path="/login"  element={LoginView} />
-          <Route path="/profile"  element={ProfileView} />
-          <Route element={NotFoundView}/>
+          <Route path="/"  element={<HomeView />} />
+          <Route path="/login"  element={<LoginView />} />
+          <Route path="/profile"  element={<ProfileView/>} />
+          <Route element={<NotFoundView />}/>
         </Routes>
       </BrowserRouter>
     </div>
