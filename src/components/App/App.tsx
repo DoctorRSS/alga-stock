@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './App.css';
-import HomeView from '../../views/HomeView';
+import ProductsView from '../../views/ProductsView';
 import NotFoundView from '../../views/NotFoundView';
 import LoginView from '../../views/LoginView';
 import ProfileView from '../../views/ProfileView';
@@ -15,12 +15,18 @@ import ProfileView from '../../views/ProfileView';
 //Fonte https://ateliware.com/blog/react-router e https://stackoverflow.com/questions/63124161/attempted-import-error-switch-is-not-exported-from-react-router-dom
 
 //Outro ponto de correcao, utilizar as tags < /> para executar com o element
+
+//Redirect foi substituido pelo Navigate no redirecionamento das paginas no react-router-dom v6
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/"  element={<HomeView />} />
+        <Route
+        path="/"
+        element={<Navigate to="/products" />}
+        />
+          <Route path="/products"  element={<ProductsView />} />
           <Route path="/login"  element={<LoginView />} />
           <Route path="/profile"  element={<ProfileView/>} />
           <Route element={<NotFoundView />}/>
