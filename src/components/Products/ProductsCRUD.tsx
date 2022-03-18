@@ -6,7 +6,9 @@ import Swal from 'sweetalert2'
 import { connect, useDispatch } from 'react-redux'
 import * as ProductsAction from '../../redux/Products/Products.actions'
 import { RootState, ThunkDispatch } from '../../redux'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 
+//useHistory substituido pelo useNavigate devido a utilizacao do react-router-dom v6
 const headers: TableHeader[] = [
   { key: 'id', value: '#' },
   { key: 'name', value: 'Product' },
@@ -20,11 +22,21 @@ declare interface ProductsCRUDProps {
 
 const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
   const dispatch: ThunkDispatch = useDispatch()
-
+  const params = useParams<{id?: string}>()
+  const navigate = useNavigate()
+  const location = useLocation()
   const showErrorAlert =
     (err: Error) => Swal.fire('Oops!', err.message, 'error')
 
   const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>(undefined)
+
+  useEffect(() => {
+    setUpdatingProduct(
+      params.id
+        ? props.products.find(product => product._id === params.id)
+        : undefined
+    )
+  }, [params, props.products])
   
   useEffect(() => {
     fetchData()
@@ -84,7 +96,12 @@ const ProductsCRUD: React.FC<ProductsCRUDProps> = (props) => {
       enableActions
       onDelete={handleProductDelete}
       onDetail={handleProductDetail}
-      onEdit={setUpdatingProduct}
+      onEdit= {product => {
+        navigate({
+          pathname: `/products/${product._id}`,
+          search: location.search
+        })
+      }}
       itemsPerPage={3}
     />
 
