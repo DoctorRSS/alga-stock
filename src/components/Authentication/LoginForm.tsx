@@ -18,7 +18,7 @@ const LoginForm = () => {
   const handleLogin = async () => {
     try {
       await dispatch(login(form))
-      navigate('/profile')
+      navigate('/')
     } catch(err: any) {
       Swal.fire(
         'Error',

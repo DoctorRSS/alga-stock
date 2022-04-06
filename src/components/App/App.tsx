@@ -26,10 +26,11 @@ function App() {
         path="/"
         element={<Navigate to="/products" />}
         />
-          <Route path="/products/:id?"  element={<ProductsView />} />
+          <Route path="/products"  element={<ProductsView />} />
+          <Route path="/products/:id"  element= {<ProductsView />} />
           <Route path="/login"  element={<LoginView />} />
           <Route path="/profile"  element={<ProfileView/>} />
-          <Route element={<NotFoundView />}/>
+          <Route path="*" element={<NotFoundView />}/>
         </Routes>
       </BrowserRouter>
     </div>

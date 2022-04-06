@@ -25,8 +25,8 @@ const ProfileView: React.FC<ProfileViewProps> = (props) => {
 
 const mapStateToProps = () => ({
   user: {
-    name: 'Robson Silveira',
-    email: 'robson.silveira@test.com'
+    name: 'Daniel Bonifacio',
+    email: 'daniel@algaworks.com'
   }
 })
 

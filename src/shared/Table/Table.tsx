@@ -115,7 +115,7 @@ const Table: React.FC<TableProps> = (props) => {
           .map((_, i) => {
             return <NavLink
               key = {i}
-              className={(navData) => navData.isActive ? "selected" : "" }
+              className={(navData) => navData.isActive ? "isActive" : "" }
               to={{
                 pathname: location.pathname,
                 search: `?page=${i + 1}`
